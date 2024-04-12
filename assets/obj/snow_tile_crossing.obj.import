@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://j0on42kd5mbs"
+path="res://.godot/imported/snow_tile_crossing.obj-0c03fbbc9c0bad1cb79c8f08a8b2e3d9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/snow_tile_crossing.obj-0c03fbbc9c0bad1cb79c8f08a8b2e3d9.mesh"]
+
+source_file="res://assets/obj/snow_tile_crossing.obj"
+dest_files=["res://.godot/imported/snow_tile_crossing.obj-0c03fbbc9c0bad1cb79c8f08a8b2e3d9.mesh", "res://.godot/imported/snow_tile_crossing.obj-0c03fbbc9c0bad1cb79c8f08a8b2e3d9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

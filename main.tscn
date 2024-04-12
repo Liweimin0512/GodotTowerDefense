@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwhmm15rmjwps"]
+
+[ext_resource type="MeshLibrary" uid="uid://44n5usd1n07w" path="res://assets/tile_mesh_library.tres" id="1_146fd"]
+[ext_resource type="MeshLibrary" uid="uid://c415yh1pb4qjy" path="res://assets/detail_mesh_library.tres" id="2_adcv7"]
+
+[sub_resource type="Curve3D" id="Curve3D_yw1i8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.575811, 0, 2.45273, 0, 0, 0, 0, 0, 0, 1.40631, 0, 2.45273),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Environment" id="Environment_b6vtg"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_sk4ka"]
+
+[node name="main" type="Node3D"]
+
+[node name="TileGridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_146fd")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 2, 0, 1, 2, 0, 1, 1, 5, 3, 5, 6, 3, 6, 27, 3, 7, 27, 3, 8, 27, 65539, 6, 29)
+}
+metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.407024, 0.913418, 0, -0.913418, 0.407024, -0.831577, 2.39854, 1.62886)
+light_color = Color(0.870588, 0.870588, 0.870588, 1)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_yw1i8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 5.36633, 5.23728, 5.59662)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b6vtg")
+camera_attributes = SubResource("CameraAttributesPractical_sk4ka")
+
+[node name="DetailGridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh_library = ExtResource("2_adcv7")
+cell_size = Vector3(1, 1, 1)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://carix3linfaq4"
+path="res://.godot/imported/tile_cornerInner.obj-7ad25a3bd957acc6ca768984fdb7f79f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile_cornerInner.obj-7ad25a3bd957acc6ca768984fdb7f79f.mesh"]
+
+source_file="res://assets/obj/tile_cornerInner.obj"
+dest_files=["res://.godot/imported/tile_cornerInner.obj-7ad25a3bd957acc6ca768984fdb7f79f.mesh", "res://.godot/imported/tile_cornerInner.obj-7ad25a3bd957acc6ca768984fdb7f79f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

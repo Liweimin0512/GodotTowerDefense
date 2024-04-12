@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdvsih7jrrdtr"]
+
+[ext_resource type="PackedScene" uid="uid://k0vt6u5l84ia" path="res://source/actor/tower.tscn" id="1_dmvpr"]
+[ext_resource type="Texture2D" uid="uid://rni2e0tvmgwj" path="res://assets/textures/tower/tower_fort_03.tres" id="2_6epsd"]
+
+[node name="tower_01" instance=ExtResource("1_dmvpr")]
+
+[node name="Sprite2D2" parent="fort" index="0"]
+texture = ExtResource("2_6epsd")

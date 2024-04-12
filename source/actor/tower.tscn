@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://k0vt6u5l84ia"]
+
+[ext_resource type="Texture2D" uid="uid://bqjwrvxst3o0p" path="res://assets/textures/tower/tower_base_01.tres" id="1_0jb4i"]
+[ext_resource type="Script" path="res://source/actor/tower.gd" id="1_us8fu"]
+[ext_resource type="PackedScene" uid="uid://bt5ssito74mvj" path="res://source/actor/bullet.tscn" id="2_qj5w7"]
+[ext_resource type="Texture2D" uid="uid://dt30bhiydluh4" path="res://assets/textures/tower/tower_fort_02.tres" id="2_tv7k2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ietef"]
+radius = 256.0
+
+[node name="tower" type="Node2D" groups=["tower"]]
+script = ExtResource("1_us8fu")
+p_bullet = ExtResource("2_qj5w7")
+cooldown = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0jb4i")
+
+[node name="fort" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="fort"]
+rotation = 1.5708
+texture = ExtResource("2_tv7k2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ietef")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

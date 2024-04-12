@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://iqgpya6mk3n3"
+path="res://.godot/imported/tile_dirt.obj-285285bffc3f9687ec9075026fee9a66.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile_dirt.obj-285285bffc3f9687ec9075026fee9a66.mesh"]
+
+source_file="res://assets/obj/tile_dirt.obj"
+dest_files=["res://.godot/imported/tile_dirt.obj-285285bffc3f9687ec9075026fee9a66.mesh", "res://.godot/imported/tile_dirt.obj-285285bffc3f9687ec9075026fee9a66.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1pjw4s15wm6b"]
+
+[ext_resource type="Script" path="res://source/widgets/game_form.gd" id="1_2xrgf"]
+[ext_resource type="PackedScene" uid="uid://cksee1q0k6by2" path="res://source/widgets/w_tower.tscn" id="1_55u1p"]
+[ext_resource type="PackedScene" uid="uid://4c7g5vudwksg" path="res://source/actor/tower/tower_02.tscn" id="3_6haoi"]
+[ext_resource type="PackedScene" uid="uid://b0s3vm6evpi2m" path="res://source/actor/tower/tower_01.tscn" id="3_q2ctl"]
+[ext_resource type="PackedScene" uid="uid://bdvsih7jrrdtr" path="res://source/actor/tower/tower_03.tscn" id="4_y5561"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjcin"]
+bg_color = Color(0.858824, 0.145098, 0.156863, 1)
+
+[node name="game_form" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_2xrgf")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer2/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/fill = SubResource("StyleBoxFlat_jjcin")
+value = 50.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="w_tower" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
+layout_mode = 2
+p_tower = ExtResource("3_q2ctl")
+
+[node name="w_tower2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
+layout_mode = 2
+p_tower = ExtResource("3_6haoi")
+
+[node name="w_tower3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
+layout_mode = 2
+p_tower = ExtResource("4_y5561")

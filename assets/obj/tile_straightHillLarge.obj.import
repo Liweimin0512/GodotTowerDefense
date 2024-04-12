@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5ee1detfilpm"
+path="res://.godot/imported/tile_straightHillLarge.obj-8f63de13cd245d51ba33f698a7726daf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tile_straightHillLarge.obj-8f63de13cd245d51ba33f698a7726daf.mesh"]
+
+source_file="res://assets/obj/tile_straightHillLarge.obj"
+dest_files=["res://.godot/imported/tile_straightHillLarge.obj-8f63de13cd245d51ba33f698a7726daf.mesh", "res://.godot/imported/tile_straightHillLarge.obj-8f63de13cd245d51ba33f698a7726daf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
