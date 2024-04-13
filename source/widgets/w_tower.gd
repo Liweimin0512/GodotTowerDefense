@@ -16,7 +16,8 @@ signal released
 
 func _ready() -> void:
 	var tower = sub_viewport.get_child(0)
-	tower.queue_free()
+	if tower:
+		tower.queue_free()
 	update_display()
 
 func update_display() -> void:
@@ -26,6 +27,7 @@ func update_display() -> void:
 	tower.position = Vector2(32, 32)
 	tower.scale = Vector2.ONE * 0.5	
 	lab_cost.text = str(tower.cost)
+	tower.add_to_group("cant free")
 
 func update_cost_display(coin : int) -> void:
 	lab_cost.modulate = Color.RED if not can_place_tower(coin) else Color.WHITE

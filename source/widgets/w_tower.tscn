@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://cksee1q0k6by2"]
+[gd_scene load_steps=3 format=3 uid="uid://cksee1q0k6by2"]
 
-[ext_resource type="PackedScene" uid="uid://k0vt6u5l84ia" path="res://source/actor/tower.tscn" id="1_x4hvu"]
 [ext_resource type="Script" path="res://source/widgets/w_tower.gd" id="1_xxl7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g48kn"]
@@ -30,11 +29,6 @@ unique_name_in_owner = true
 handle_input_locally = false
 size = Vector2i(64, 64)
 render_target_update_mode = 4
-
-[node name="tower" parent="MarginContainer/SubViewportContainer/SubViewport" groups=["cant free"] instance=ExtResource("1_x4hvu")]
-unique_name_in_owner = true
-position = Vector2(32, 32)
-scale = Vector2(0.5, 0.5)
 
 [node name="lab_cost" type="Label" parent="MarginContainer"]
 unique_name_in_owner = true

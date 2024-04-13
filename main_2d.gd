@@ -66,6 +66,7 @@ func _replay() -> void:
 		if actor.is_in_group("cant free"): continue
 		actor.queue_free()
 	get_tree().paused = false
+	coin = 100
 	game_form.replay()
 
 ## 预览塔摆放位置
