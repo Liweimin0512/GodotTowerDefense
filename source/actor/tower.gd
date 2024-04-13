@@ -8,6 +8,7 @@ class_name Tower
 @export var cooldown : float = 0.2
 @export var damage : float = 10
 @export var cost : int = 10
+@export var bullet_count : int = 1
 
 var current_cd : float = 0
 var enemies : Array = []
@@ -24,12 +25,14 @@ func _process(delta: float) -> void:
 		_attack_enemy()
 	fort.look_at(enemies[0].global_position)
 
+## 初始化
 func initialize() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
 	area_2d.area_exited.connect(_on_area_exit)
 	for area in area_2d.get_overlapping_areas():
 		enemies.append(area.owner)
 
+## 能否拜访建筑物
 func can_place_tower(coin: int) -> bool:
 	return coin - cost >= 0
 
@@ -49,4 +52,5 @@ func _spawn_bullet() -> void:
 	bullet.damage = damage
 	add_child(bullet)
 	bullet.initialize(enemies[0])
+	$audio_explosion.play()
 

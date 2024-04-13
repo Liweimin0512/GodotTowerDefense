@@ -4,9 +4,7 @@
 [ext_resource type="Script" path="res://source/actor/tower.gd" id="1_us8fu"]
 [ext_resource type="PackedScene" uid="uid://bt5ssito74mvj" path="res://source/actor/bullet.tscn" id="2_qj5w7"]
 [ext_resource type="Texture2D" uid="uid://dt30bhiydluh4" path="res://assets/textures/tower/tower_fort_02.tres" id="2_tv7k2"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ietef"]
-radius = 256.0
+[ext_resource type="AudioStream" uid="uid://bkbo0o13v06ca" path="res://assets/sound/explosion4.ogg" id="5_13go8"]
 
 [node name="tower" type="Node2D" groups=["actor", "tower"]]
 script = ExtResource("1_us8fu")
@@ -25,6 +23,5 @@ texture = ExtResource("2_tv7k2")
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_ietef")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+[node name="audio_explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_13go8")

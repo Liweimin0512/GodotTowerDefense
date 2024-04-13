@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://k0vt6u5l84ia" path="res://source/actor/tower.tscn" id="1_4uhxp"]
 [ext_resource type="PackedScene" uid="uid://dsv7vfuh3knl1" path="res://source/actor/bullet/bullet_homing.tscn" id="2_kxxnp"]
-[ext_resource type="Texture2D" uid="uid://dn2mwmhmrr7oq" path="res://assets/textures/tower/tower_fort_01.tres" id="2_n47bc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thtqo"]
+radius = 256.0
 
 [node name="tower_01" instance=ExtResource("1_4uhxp")]
 p_bullet = ExtResource("2_kxxnp")
 
-[node name="Sprite2D2" parent="fort" index="0"]
-texture = ExtResource("2_n47bc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_thtqo")

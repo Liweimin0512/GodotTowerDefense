@@ -89,10 +89,7 @@ func _spawn_enemy() -> void:
 	var enemy = enemies[enemy_index].instantiate()
 	path_2d.add_child(enemy)
 	enemy.global_position = path_2d.curve.get_point_position(0)
-	enemy.damaged.connect(
-		func(damage: float) -> void:
-			current_health -= damage
-	)
+	enemy.damaged.connect(_damaged)
 	enemy.died.connect(
 		func(loot_coin : int) -> void:
 			coin += loot_coin
@@ -107,11 +104,7 @@ func place_turret_at_mouse_position():
 		coin -= perview_tower.cost
 		perview_tower.initialize()
 		perview_tower = null
-		#var turret_instance = preload("res://path/to/Turret.tscn").instance()
-		#var turret_position = map_to_world(cell) + cell_size / 2
-		#turret_instance.position = turret_position
-		#add_child(turret_instance)
-		pass
+		$audio_footstep.play()
 
 ## 能否放置防御塔
 func can_place_turret_here(cell : Vector2i):
@@ -120,8 +113,9 @@ func can_place_turret_here(cell : Vector2i):
 	return tile_id == TILE_ID_FOR_PLACEMENT and tile_coord == TILE_COORD_FOR_PLACEMENT  # 确保tile ID匹配可以放置炮台的tile
 
 ## 受到伤害
-func damage(damage) -> void:
+func _damaged(damage) -> void:
 	current_health -= damage
+	$audio_damage.play()
 
 ## 游戏结束
 func _game_over() -> void:

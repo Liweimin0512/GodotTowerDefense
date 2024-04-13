@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6rxwl2ai7deu"]
+[gd_scene load_steps=6 format=3 uid="uid://b6rxwl2ai7deu"]
 
 [ext_resource type="Script" path="res://source/actor/enemy.gd" id="1_rl2a8"]
 [ext_resource type="Texture2D" uid="uid://md566k8v34tv" path="res://assets/textures/enemy/enemy_01.tres" id="2_so4lf"]
+[ext_resource type="AudioStream" uid="uid://k3sjvxtm4mh8" path="res://assets/sound/hit3.ogg" id="3_7wnpj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfb0x"]
 radius = 64.0
@@ -34,5 +35,8 @@ offset_bottom = -113.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_rendp")
 value = 50.0
 show_percentage = false
+
+[node name="audio_dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7wnpj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

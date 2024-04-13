@@ -1,14 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://b81k01hvvahfb"]
+[gd_scene load_steps=17 format=3 uid="uid://b81k01hvvahfb"]
 
 [ext_resource type="Script" path="res://main_2d.gd" id="1_3ngpm"]
 [ext_resource type="Texture2D" uid="uid://cmx1jg7fcrfj8" path="res://assets/textures/towerDefense_tilesheet@2.png" id="1_l3knb"]
-[ext_resource type="PackedScene" uid="uid://chxyrunrronuv" path="res://source/actor/enemy/enemy_01.tscn" id="2_tkey6"]
-[ext_resource type="PackedScene" uid="uid://bldo30m34vnlk" path="res://source/actor/enemy/enemy_02.tscn" id="3_3eu4o"]
+[ext_resource type="PackedScene" uid="uid://chxyrunrronuv" path="res://source/actor/tower/enemy/enemy_01.tscn" id="2_tkey6"]
+[ext_resource type="PackedScene" uid="uid://bldo30m34vnlk" path="res://source/actor/tower/enemy/enemy_02.tscn" id="3_3eu4o"]
 [ext_resource type="PackedScene" uid="uid://k0vt6u5l84ia" path="res://source/actor/tower.tscn" id="3_oubm0"]
-[ext_resource type="PackedScene" uid="uid://bp6udbi527qil" path="res://source/actor/enemy/enemy_03.tscn" id="4_5anhy"]
-[ext_resource type="PackedScene" uid="uid://m732k81v5pbt" path="res://source/actor/enemy/enemy_04.tscn" id="5_w275y"]
+[ext_resource type="PackedScene" uid="uid://bp6udbi527qil" path="res://source/actor/tower/enemy/enemy_03.tscn" id="4_5anhy"]
+[ext_resource type="PackedScene" uid="uid://m732k81v5pbt" path="res://source/actor/tower/enemy/enemy_04.tscn" id="5_w275y"]
 [ext_resource type="PackedScene" uid="uid://b1pjw4s15wm6b" path="res://source/widgets/game_form.tscn" id="5_wfx32"]
-[ext_resource type="PackedScene" uid="uid://dr57s47rgl0uh" path="res://source/actor/enemy/enemy_05.tscn" id="6_pi1qy"]
+[ext_resource type="PackedScene" uid="uid://dr57s47rgl0uh" path="res://source/actor/tower/enemy/enemy_05.tscn" id="6_pi1qy"]
+[ext_resource type="AudioStream" uid="uid://be5twobfjoikn" path="res://assets/sound/music/Mission Plausible.ogg" id="10_m40tq"]
+[ext_resource type="AudioStream" uid="uid://deqgxc7i5uje8" path="res://assets/sound/footstep00.ogg" id="11_q0adv"]
+[ext_resource type="AudioStream" uid="uid://c6n4p2jf523dy" path="res://assets/sound/lose1.ogg" id="12_r2e8g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ea6p8"]
 texture = ExtResource("1_l3knb")
@@ -363,3 +366,14 @@ curve = SubResource("Curve2D_jct2q")
 
 [node name="game_form" parent="CanvasLayer" instance=ExtResource("5_wfx32")]
 unique_name_in_owner = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_m40tq")
+volume_db = -20.0
+autoplay = true
+
+[node name="audio_footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_q0adv")
+
+[node name="audio_damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_r2e8g")

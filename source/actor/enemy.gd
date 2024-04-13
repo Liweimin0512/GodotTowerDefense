@@ -29,8 +29,7 @@ func _process(delta: float) -> void:
 		queue_free()
 		get_parent().remove_child(self)
 
-func _damage() -> void:
-	damaged.emit(damage)
+func _damage() -> void:damaged.emit(damage)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.owner is Bullet:
@@ -41,6 +40,7 @@ func _current_hp_setter(value : float) -> void:
 	current_hp = value
 	progress_bar.value = value
 	if current_hp < max_hp and not progress_bar.visible:
+	
 		progress_bar.show()
 	if current_hp <= 0:
 		_died()
@@ -48,6 +48,7 @@ func _current_hp_setter(value : float) -> void:
 func _died() -> void:
 	died.emit(loot_coin)
 	queue_free()
+	$audio_dead.play()
 
 func _rotation_sprite() -> void:
 	# 获取当前offset的切线方向

@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://4c7g5vudwksg"]
+[gd_scene load_steps=5 format=3 uid="uid://4c7g5vudwksg"]
 
 [ext_resource type="PackedScene" uid="uid://k0vt6u5l84ia" path="res://source/actor/tower.tscn" id="1_i4sba"]
 [ext_resource type="PackedScene" uid="uid://dsv7vfuh3knl1" path="res://source/actor/bullet/bullet_homing.tscn" id="2_cwk2j"]
+[ext_resource type="Texture2D" uid="uid://dn2mwmhmrr7oq" path="res://assets/textures/tower/tower_fort_01.tres" id="3_dij8j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3pnc"]
+radius = 320.0
 
 [node name="tower_01" instance=ExtResource("1_i4sba")]
 p_bullet = ExtResource("2_cwk2j")
 damage = 20.0
 cost = 20
+
+[node name="Sprite2D2" parent="fort" index="0"]
+texture = ExtResource("3_dij8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("CircleShape2D_p3pnc")

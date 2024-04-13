@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcuxj4oqke6yp"]
+
+[ext_resource type="PackedScene" uid="uid://dsv7vfuh3knl1" path="res://source/actor/bullet/bullet_homing.tscn" id="1_kfr2w"]
+[ext_resource type="Texture2D" uid="uid://u1wi70eybfc5" path="res://assets/textures/tower/bullet_03.tres" id="2_0qeop"]
+
+[node name="bullet_homing_02" instance=ExtResource("1_kfr2w")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_0qeop")
