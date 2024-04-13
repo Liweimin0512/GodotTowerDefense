@@ -8,7 +8,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ietef"]
 radius = 256.0
 
-[node name="tower" type="Node2D" groups=["tower"]]
+[node name="tower" type="Node2D" groups=["actor", "tower"]]
 script = ExtResource("1_us8fu")
 p_bullet = ExtResource("2_qj5w7")
 cooldown = 1.0

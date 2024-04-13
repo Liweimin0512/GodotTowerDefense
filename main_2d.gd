@@ -9,7 +9,20 @@ const TILE_COORD_FOR_PLACEMENT : Vector2i = Vector2i(15, 0)
 @onready var game_form: Control = %game_form
 
 @export var enemies : Array[PackedScene] = []
-@export var towers : Array[PackedScene] = []
+#@export var towers : Array[PackedScene] = []
+@export var max_health : float = 100
+var current_health : float = 100 :
+	set(value) :
+		current_health = value
+		health_changed.emit()
+		if current_health <= 0:
+			_game_over()
+@export var coin : int  = 100:
+	set(value):
+		coin = value
+		game_form.update_coin_display()
+
+signal health_changed
 
 var perview_tower : Tower = null :
 	set(value):
@@ -27,13 +40,28 @@ func _ready() -> void:
 			perview_tower = w_tower.p_tower.instantiate()
 			tile_map.add_child(perview_tower)
 	)
+	current_health = max_health
 	for tower : Tower in get_tree().get_nodes_in_group("tower"):
 		tower.initialize()
 	timer.start()
+	game_form.replay_pressed.connect(
+		func() -> void:
+			_replay()
+	)
+	game_form.update_coin_display()
 
 func _process(delta: float) -> void:
 	if perview_tower:
 		_perview_tower()
+
+## 重启游戏
+func _replay() -> void:
+	current_health = max_health
+	for actor in get_tree().get_nodes_in_group("actor"):
+		if actor.is_in_group("cant free"): continue
+		actor.queue_free()
+	get_tree().paused = false
+	game_form.replay()
 
 func _perview_tower() -> void:
 	if not perview_tower : return
@@ -48,9 +76,18 @@ func _disperview_tower() -> void:
 	remove_child(perview_tower)
 
 func _spawn_enemy() -> void:
-	var enemy = enemies[0].instantiate()
+	var enemy_index : int = randi_range(0, enemies.size() - 1)
+	var enemy = enemies[enemy_index].instantiate()
 	path_2d.add_child(enemy)
 	enemy.global_position = path_2d.curve.get_point_position(0)
+	enemy.damaged.connect(
+		func(damage: float) -> void:
+			current_health -= damage
+	)
+	enemy.died.connect(
+		func(loot_coin : int) -> void:
+			coin += loot_coin
+	)
 	_reset_timer()
 
 func _reset_timer() -> void:
@@ -82,3 +119,13 @@ func can_place_turret_here(cell : Vector2i):
 	var tile_id = tile_map.get_cell_source_id(1, cell)
 	var tile_coord = tile_map.get_cell_atlas_coords(1, cell)
 	return tile_id == TILE_ID_FOR_PLACEMENT and tile_coord == TILE_COORD_FOR_PLACEMENT  # 确保tile ID匹配可以放置炮台的tile
+
+## 受到伤害
+func damage(damage) -> void:
+	current_health -= damage
+
+## 游戏结束
+func _game_over() -> void:
+	print("GameOver!")
+	get_tree().paused = true
+	game_form.game_over()

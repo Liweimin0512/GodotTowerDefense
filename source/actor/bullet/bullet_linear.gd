@@ -1,9 +1,10 @@
-extends Node2D
-var speed = 400  # 子弹速度
+extends Bullet
+class_name BulletLinear
+
 var target_position = Vector2()  # 目标位置
 
-func initialize(_target_position):
-	target_position = _target_position
+func initialize(target: Enemy) -> void:
+	target_position = target.position
 	var direction = (target_position - global_position).normalized()
 	rotation = direction.angle()
 

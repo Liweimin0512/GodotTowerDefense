@@ -1,10 +1,13 @@
 extends Node2D
 class_name Tower
 
-@export var p_bullet : PackedScene
-@export var cooldown : float = 0.2
 @onready var area_2d: Area2D = $Area2D
 @onready var fort: Node2D = $fort
+
+@export var p_bullet : PackedScene
+@export var cooldown : float = 0.2
+@export var damage : float = 10
+@export var cost : int = 10
 
 var current_cd : float = 0
 var enemies : Array = []
@@ -38,6 +41,7 @@ func _attack_enemy() -> void:
 	
 func _spawn_bullet() -> void:
 	var bullet = p_bullet.instantiate()
+	bullet.damage = damage
 	add_child(bullet)
 	bullet.initialize(enemies[0])
 

@@ -9,9 +9,10 @@ radius = 64.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rendp"]
 bg_color = Color(0.933333, 0.164706, 0.152941, 1)
 
-[node name="Enemy" type="PathFollow2D"]
+[node name="Enemy" type="PathFollow2D" groups=["actor", "enemy"]]
 script = ExtResource("1_rl2a8")
 speed = 200.0
+damage = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_so4lf")
@@ -25,11 +26,11 @@ shape = SubResource("CircleShape2D_pfb0x")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(100, 15)
 offset_left = -64.0
 offset_top = -128.0
 offset_right = 64.0
-offset_bottom = -101.0
+offset_bottom = -113.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_rendp")
 value = 50.0
 show_percentage = false

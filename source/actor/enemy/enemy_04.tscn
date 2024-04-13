@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://m732k81v5pbt"]
+
+[ext_resource type="PackedScene" uid="uid://b6rxwl2ai7deu" path="res://source/actor/enemy.tscn" id="1_umh6y"]
+[ext_resource type="Texture2D" uid="uid://dfbt6ghe56ueu" path="res://assets/textures/enemy/enemy_04.tres" id="2_eirp3"]
+
+[node name="Enemy" instance=ExtResource("1_umh6y")]
+speed = 120.0
+max_hp = 500.0
+damage = 40.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_eirp3")
+
+[node name="ProgressBar" parent="." index="2"]
+offset_bottom = -124.0
