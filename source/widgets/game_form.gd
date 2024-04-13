@@ -12,7 +12,8 @@ func _ready() -> void:
 	for w_tower in h_box_container.get_children():
 		w_tower.released.connect(
 			func() -> void:
-				w_tower_released.emit(w_tower)
+				if w_tower.can_place_tower(owner.coin):
+					w_tower_released.emit(w_tower)
 		)
 	owner.health_changed.connect(
 		func() -> void:
@@ -36,8 +37,8 @@ func game_over() -> void:
 func update_pb_health_display() -> void:
 	pb_health.value = owner.current_health
 	pb_health.max_value = owner.max_health
-	
-func update_coin_display() -> void:
-	lab_coin.text = "金币：{0}".format([owner.coin])
+
+func update_coin_display(coin : int) -> void:
+	lab_coin.text = "金币： " + str(coin)
 	for w_tower in h_box_container.get_children():
-		w_tower.update_cost_display(owner.coin)
+		w_tower.update_cost_display(coin)

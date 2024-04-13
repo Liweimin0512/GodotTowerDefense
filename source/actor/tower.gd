@@ -26,7 +26,12 @@ func _process(delta: float) -> void:
 
 func initialize() -> void:
 	area_2d.area_entered.connect(_on_area_entered)
-	area_2d.area_exited.connect(_on_area_exit)	
+	area_2d.area_exited.connect(_on_area_exit)
+	for area in area_2d.get_overlapping_areas():
+		enemies.append(area.owner)
+
+func can_place_tower(coin: int) -> bool:
+	return coin - cost >= 0
 
 func _on_area_entered(area : Area2D) -> void:
 	enemies.append(area.owner)
