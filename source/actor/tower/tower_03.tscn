@@ -9,6 +9,7 @@ radius = 384.0
 
 [node name="tower_01" instance=ExtResource("1_dmvpr")]
 p_bullet = ExtResource("2_uiaev")
+cooldown = 2.0
 damage = 50.0
 cost = 50
 

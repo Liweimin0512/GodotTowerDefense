@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ev7rug88aeaj"]
+[gd_scene load_steps=5 format=3 uid="uid://ev7rug88aeaj"]
 
 [ext_resource type="PackedScene" uid="uid://bt5ssito74mvj" path="res://source/actor/bullet.tscn" id="1_8e73h"]
 [ext_resource type="Script" path="res://source/actor/bullet/bullet_linear.gd" id="2_4vp8e"]
+[ext_resource type="PackedScene" uid="uid://rcjxsvn0e3o7" path="res://source/actor/explotion.tscn" id="3_0p681"]
 [ext_resource type="Texture2D" uid="uid://cs80xqqlrdxk6" path="res://assets/textures/tower/bullet_05.tres" id="3_f8r4k"]
 
 [node name="bullet_linear" instance=ExtResource("1_8e73h")]
 script = ExtResource("2_4vp8e")
+P_EXPLOTION = ExtResource("3_0p681")
+explote_damage = 8.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_f8r4k")

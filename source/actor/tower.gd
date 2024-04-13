@@ -12,6 +12,7 @@ class_name Tower
 
 var current_cd : float = 0
 var enemies : Array = []
+var current_bullet_count : int
 
 func _ready() -> void:
 	#initialize()
@@ -31,7 +32,8 @@ func initialize() -> void:
 	area_2d.area_exited.connect(_on_area_exit)
 	for area in area_2d.get_overlapping_areas():
 		enemies.append(area.owner)
-
+	current_bullet_count = bullet_count
+	
 ## 能否拜访建筑物
 func can_place_tower(coin: int) -> bool:
 	return coin - cost >= 0
@@ -44,13 +46,17 @@ func _on_area_exit(area: Area2D) -> void:
 
 func _attack_enemy() -> void:
 	if enemies.is_empty() : return
-	_spawn_bullet()
-	current_cd = cooldown
+	if current_bullet_count > 0:
+		await _spawn_bullet()
+	else:
+		current_bullet_count = bullet_count
+		current_cd = cooldown
 	
 func _spawn_bullet() -> void:
 	var bullet = p_bullet.instantiate()
 	bullet.damage = damage
 	add_child(bullet)
 	bullet.initialize(enemies[0])
+	current_bullet_count -= 1
 	$audio_explosion.play()
-
+	await get_tree().create_timer(0.5).timeout

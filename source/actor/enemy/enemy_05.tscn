@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr57s47rgl0uh"]
+[gd_scene load_steps=4 format=3 uid="uid://dr57s47rgl0uh"]
 
 [ext_resource type="PackedScene" uid="uid://b6rxwl2ai7deu" path="res://source/actor/enemy.tscn" id="1_uyw1v"]
 [ext_resource type="Texture2D" uid="uid://vhcf86gdjmq3" path="res://assets/textures/enemy/enemy_tank_01.tres" id="2_dmdtk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yecky"]
+size = Vector2(110, 75)
+
 [node name="Enemy" instance=ExtResource("1_uyw1v")]
 speed = 100.0
 max_hp = 1000.0
-damage = 50.0
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dmdtk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="1"]
+shape = SubResource("RectangleShape2D_yecky")
 
 [node name="ProgressBar" parent="." index="2"]
 offset_bottom = -124.0

@@ -9,8 +9,10 @@ radius = 512.0
 
 [node name="tower" instance=ExtResource("1_2bedv")]
 p_bullet = ExtResource("2_ewedy")
-damage = 50.0
-cost = 50
+cooldown = 2.0
+damage = 80.0
+cost = 80
+bullet_count = 2
 
 [node name="Sprite2D2" parent="fort" index="0"]
 texture = ExtResource("3_ayjdr")

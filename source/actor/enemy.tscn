@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://k3sjvxtm4mh8" path="res://assets/sound/hit3.ogg" id="3_7wnpj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pfb0x"]
-radius = 64.0
+radius = 32.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rendp"]
 bg_color = Color(0.933333, 0.164706, 0.152941, 1)
@@ -13,7 +13,6 @@ bg_color = Color(0.933333, 0.164706, 0.152941, 1)
 [node name="Enemy" type="PathFollow2D" groups=["actor", "enemy"]]
 script = ExtResource("1_rl2a8")
 speed = 200.0
-damage = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_so4lf")
@@ -21,6 +20,7 @@ texture = ExtResource("2_so4lf")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_pfb0x")
@@ -38,5 +38,3 @@ show_percentage = false
 
 [node name="audio_dead" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7wnpj")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

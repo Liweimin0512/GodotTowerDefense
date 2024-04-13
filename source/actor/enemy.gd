@@ -7,7 +7,7 @@ class_name Enemy
 @export var speed : float = 120
 @export var max_hp : float = 100
 var current_hp : float : set = _current_hp_setter
-@export var damage : float = 10
+@export var attack : float = 10
 @export var loot_coin : int = 10
 
 signal damaged
@@ -29,12 +29,12 @@ func _process(delta: float) -> void:
 		queue_free()
 		get_parent().remove_child(self)
 
-func _damage() -> void:damaged.emit(damage)
+## 受到伤害
+func damage(damage: float) -> void:
+	current_hp -= damage
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	if area.owner is Bullet:
-		current_hp -= area.owner.damage
-		area.owner.queue_free()
+func _damage() -> void:
+	damaged.emit(attack)
 
 func _current_hp_setter(value : float) -> void:
 	current_hp = value
