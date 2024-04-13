@@ -1,20 +1,27 @@
 extends Node2D
 
+## 能够摆放建筑地块所在图块ID
 const TILE_ID_FOR_PLACEMENT : int = 22
+## 能够摆放建筑地块所在图块坐标
 const TILE_COORD_FOR_PLACEMENT : Vector2i = Vector2i(15, 0)
 
+## 刷怪计时器
 @onready var timer: Timer = $Timer
+## 刷怪线路
 @onready var path_2d: Path2D = %Path2D
+## tilemap
 @onready var tile_map: TileMap = %TileMap
+## 游戏主UI界面
 @onready var game_form: Control = %game_form
 
 @export var enemies : Array[PackedScene] = []
-#@export var towers : Array[PackedScene] = []
+
 @export var max_health : float = 100
 var current_health : float = 100 :
 	set(value) :
 		current_health = value
 		health_changed.emit()
+		game_form.update_pb_health_display(current_health, max_health)
 		if current_health <= 0:
 			_game_over()
 @export var coin : int  = 100:
@@ -37,7 +44,7 @@ func _ready() -> void:
 		)
 	game_form.w_tower_released.connect(
 		func(w_tower) -> void:
-			perview_tower = w_tower.p_tower.instantiate()
+			perview_tower = w_tower.P_TOWER.instantiate()
 			tile_map.add_child(perview_tower)
 	)
 	current_health = max_health
@@ -45,6 +52,7 @@ func _ready() -> void:
 		tower.initialize()
 	timer.start()
 	game_form.replay_pressed.connect(_replay)
+	game_form.update_pb_health_display(current_health, max_health)
 	game_form.update_coin_display(coin)
 
 func _process(delta: float) -> void:
@@ -68,6 +76,8 @@ func _replay() -> void:
 	get_tree().paused = false
 	coin = 100
 	game_form.replay()
+	game_form.update_pb_health_display(current_health, max_health)
+	game_form.update_coin_display(coin)
 
 ## 预览塔摆放位置
 func _perview_tower() -> void:

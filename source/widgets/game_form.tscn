@@ -84,19 +84,19 @@ theme_override_constants/separation = 10
 
 [node name="w_tower" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
 layout_mode = 2
-p_tower = ExtResource("3_q2ctl")
+P_TOWER = ExtResource("3_q2ctl")
 
 [node name="w_tower2" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
 layout_mode = 2
-p_tower = ExtResource("3_6haoi")
+P_TOWER = ExtResource("3_6haoi")
 
 [node name="w_tower3" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
 layout_mode = 2
-p_tower = ExtResource("4_y5561")
+P_TOWER = ExtResource("4_y5561")
 
 [node name="w_tower4" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_55u1p")]
 layout_mode = 2
-p_tower = ExtResource("6_2dxa1")
+P_TOWER = ExtResource("6_2dxa1")
 
 [node name="w_game_over" parent="." instance=ExtResource("6_l4kq6")]
 process_mode = 3
