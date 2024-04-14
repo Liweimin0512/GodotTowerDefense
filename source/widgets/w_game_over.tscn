@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://2a30u32gxesu"]
+[gd_scene load_steps=4 format=3 uid="uid://2a30u32gxesu"]
 
 [ext_resource type="Script" path="res://source/widgets/w_game_over.gd" id="1_x27ug"]
+[ext_resource type="FontFile" uid="uid://bj4wlflwm0lq7" path="res://assets/fonts/SourceHanSansSC-Regular-2.otf" id="2_hwy10"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mjjj"]
 bg_color = Color(0.266667, 0.266667, 0.266667, 1)
@@ -40,6 +41,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_hwy10")
 theme_override_font_sizes/font_size = 22
 text = "游戏结束"
 horizontal_alignment = 1
@@ -58,6 +60,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_2mjjj")
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_hwy10")
 text = "是否重新开始游戏？"
 horizontal_alignment = 1
 
@@ -76,6 +79,7 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hwy10")
 theme_override_font_sizes/font_size = 18
 text = "退出游戏"
 
@@ -88,5 +92,6 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hwy10")
 theme_override_font_sizes/font_size = 18
 text = "重新开始"
